@@ -1,23 +1,14 @@
 Package: AssignmentsRMD
-Title: Acme Inc. Corporate Design R Markdown Template
-Version: 0.1
-Authors@R:
-    person(given = "Stéfan",
-           family = "Janse van Rensburg",
-           role = c("aut", "cre"),
-           email = "stefanj@mandela.ac.za")
-Description: Provides an R Markdown template conforming for tradition, hand-in assignments.
-License: GPL (>= 3)
-Depends:
-    R (>= 4.0.0)
-Imports:
-    glue,
-    knitr (>= 1.12),
-    rmarkdown,
-    utils,
-    withr,
-    yaml
+Title: RMarkdown Template for NMU Stats Assignments
+Version: 0.0.0.9000
+Authors@R: 
+    person("Stefan", "Janse van Rensburg", , "stefanj@mandela.ac.za", role = c("aut", "cre"),
+           comment = c(ORCID = "0000-0002-0749-2277"))
+Description: RMarkdown templates for Nelson Mandela University's statistics modules.
+Suggests: 
+    testthat (>= 3.0.0)
+Config/testthat/edition: 3
 Encoding: UTF-8
-LazyData: true
 Roxygen: list(markdown = TRUE)
-RoxygenNote: 7.1.1
+RoxygenNote: 7.2.3
+License: GPL (>= 3)
