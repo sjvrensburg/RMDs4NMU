@@ -1,0 +1,23 @@
+Package: AssignmentsRMD
+Title: Acme Inc. Corporate Design R Markdown Template
+Version: 0.1
+Authors@R:
+    person(given = "Stéfan",
+           family = "Janse van Rensburg",
+           role = c("aut", "cre"),
+           email = "stefanj@mandela.ac.za")
+Description: Provides an R Markdown template conforming for tradition, hand-in assignments.
+License: GPL (>= 3)
+Depends:
+    R (>= 4.0.0)
+Imports:
+    glue,
+    knitr (>= 1.12),
+    rmarkdown,
+    utils,
+    withr,
+    yaml
+Encoding: UTF-8
+LazyData: true
+Roxygen: list(markdown = TRUE)
+RoxygenNote: 7.1.1
