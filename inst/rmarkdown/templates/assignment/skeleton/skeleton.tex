@@ -1,0 +1,115 @@
+\documentclass[answers, addpoints, 12pt]{exam}
+
+\usepackage{graphicx}
+
+% We need simple wrappers around part, question and solution
+\newenvironment{NMQ}[1]{
+  \def\tempSize{#1}
+  \question
+}{
+  \vspace{\tempSize}
+}
+\newenvironment{QUESTION}[2]{
+  \def\tempSize{#2}
+  \question[#1]
+}{
+  \vspace{\tempSize}
+}
+\newenvironment{SOLUTION}[1]{
+  \begin{solution}[#1]
+}{
+  \end{solution}
+}
+\newenvironment{PARTS}{
+  \begin{parts}
+}{
+  \end{parts}
+  \droptotalpoints
+  \newpage
+}
+\newenvironment{PART}[2]{
+  \def\tempSize{#2}
+  \part[#1]
+}{
+  \vspace{\tempSize}
+}
+
+\pagestyle{headandfoot}
+\runningheadrule
+\firstpageheader{STAX XXX}{Assignment X}{31 January 2023}
+
+\runningheader{STAX XXX}
+{Assignment X, Page \thepage\ of \numpages}
+{31 January 2023}
+\firstpagefooter{}{}{}
+\runningfooter{}{}{}
+
+\begin{document}
+
+\begin{center}
+\fbox{
+  \fbox{
+    \parbox{5.5in}{
+      \centering
+      Answer the questions in the spaces provided on the question sheets. If you run out of room for an answer, continue on the back of the page.
+      }
+    }
+  }
+\end{center}
+\vspace{0.1in}
+\makebox[\textwidth]{Student No.:\enspace\hrulefill}
+\vspace{0.1in}
+\makebox[\textwidth]{Surname, Name (Optional):\enspace\hrulefill}
+
+\begin{center}
+\gradetable[h][questions]
+\end{center}
+
+\begin{questions}
+  \pointsinrightmargin
+  \setlength{\rightpointsmargin}{1in}
+  \bracketedpoints
+  \marksnotpoints
+  \totalformat{\fbox{Total for Question \thequestion: \totalpoints}}
+
+  \begin{NMQ}{0in}
+  What if there were no air?
+
+  \end{NMQ}
+
+  \begin{PARTS}
+
+  \begin{PART}{5}{1in}
+  Describe the effect on the balloon industry.
+
+  \end{PART}
+
+  \begin{PART}{4}{1in}
+  Describe the effect on the aircraft industry.
+
+  \end{PART}
+
+  \end{PARTS}
+
+  \begin{NMQ}{0in}
+  What if there were no air?
+
+  \end{NMQ}
+
+  \begin{PARTS}
+
+  \begin{PART}{5}{\stretch{1}}
+  Describe the effect on the balloon industry.
+
+  \end{PART}
+
+  \begin{PART}{4}{\stretch{1}}
+  Describe the effect on the aircraft industry.
+
+  \end{PART}
+
+  \end{PARTS}
+
+\end{questions}
+
+\end{document}

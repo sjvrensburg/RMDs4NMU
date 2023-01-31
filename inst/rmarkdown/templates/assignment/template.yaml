@@ -1,0 +1,4 @@
+name: assignment
+description: >
+   Template for hand-in assignments and quizzes.
+create_dir: TRUE

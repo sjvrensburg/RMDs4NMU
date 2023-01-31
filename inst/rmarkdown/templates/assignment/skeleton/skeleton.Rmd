@@ -1,0 +1,57 @@
+---
+module: "STAX XXX"
+title: "Assignment X"
+author: "Your Name"
+date: "`r format(Sys.Date(), '%d %B %Y')`"
+answers: true
+fontsize: 12pt
+output: AssignmentsRMD::assignments
+---
+
+```{r setup, include=FALSE}
+knitr::opts_chunk$set(echo = TRUE)
+```
+
+::: {.NMQ data-latex="{0in}"}
+
+What if there were no air?
+
+:::
+
+:::: {.PARTS data-latex=""}
+
+::: {.PART data-latex="{5}{1in}"}
+
+Describe the effect on the balloon industry.
+
+:::
+
+::: {.PART data-latex="{4}{1in}"}
+
+Describe the effect on the aircraft industry.
+
+:::
+
+::::
+
+::: {.NMQ data-latex="{0in}"}
+
+What if there were no air?
+
+:::
+
+:::: {.PARTS data-latex=""}
+
+::: {.PART data-latex="{5}{\stretch{1}}"}
+
+Describe the effect on the balloon industry.
+
+:::
+
+::: {.PART data-latex="{4}{\stretch{1}}"}
+
+Describe the effect on the aircraft industry.
+
+:::
+
+::::
