@@ -1,21 +1,22 @@
-\documentclass[answers, addpoints, 12pt]{exam}
+\documentclass[addpoints, 12pt]{exam}
 
+\usepackage{xifthen} % provides \isempty test
 \usepackage{graphicx}
 
+\usepackage{setspace}
+\onehalfspacing
+
 % We need simple wrappers around part, question and solution
-\newenvironment{NMQ}[1]{
-  \def\tempSize{#1}
+\newenvironment{QUESTION}[1]{ % Argument is the number of marks
+  \ifthenelse{\isempty{#1}} {
+  % if #1 is empty
   \question
-}{
-  \vspace{\tempSize}
-}
-\newenvironment{QUESTION}[2]{
-  \def\tempSize{#2}
+  } {
   \question[#1]
+  }% if #1 is not empty
 }{
-  \vspace{\tempSize}
 }
-\newenvironment{SOLUTION}[1]{
+\newenvironment{SOLUTION}[1]{ % Argument is the amount of blank space
   \begin{solution}[#1]
 }{
   \end{solution}
@@ -24,23 +25,22 @@
   \begin{parts}
 }{
   \end{parts}
-  \droptotalpoints
-  \newpage
 }
-\newenvironment{PART}[2]{
-  \def\tempSize{#2}
+\newenvironment{PART}[1]{ % Argument is the number of marks
   \part[#1]
 }{
-  \vspace{\tempSize}
 }
 
+% We require the due date, instructions, student name, etc.
 \pagestyle{headandfoot}
 \runningheadrule
-\firstpageheader{STAX XXX}{Assignment X}{31 January 2023}
+\firstpageheader{\large \textbf{STAT 321}}
+{\large \textbf{Assignment 1 Due \underline{01 February 2023}}}
+{\large \textbf{Total: \numpoints\ }}
 
-\runningheader{STAX XXX}
-{Assignment X, Page \thepage\ of \numpages}
-{31 January 2023}
+\runningheader{\textbf{STAT 321}}
+{\textbf{Assignment 1}}
+{\textbf{Page \thepage\ of \numpages\ }}
 \firstpagefooter{}{}{}
 \runningfooter{}{}{}
 
@@ -56,57 +56,95 @@
     }
   }
 \end{center}
-\vspace{0.1in}
-\makebox[\textwidth]{Student No.:\enspace\hrulefill}
-\vspace{0.1in}
+\vspace{0.5cm}
+\makebox[\textwidth]{Student Number:\enspace\hrulefill}
+\vspace{0.5cm}
 \makebox[\textwidth]{Surname, Name (Optional):\enspace\hrulefill}
 
-\begin{center}
-\gradetable[h][questions]
-\end{center}
+
 
 \begin{questions}
   \pointsinrightmargin
   \setlength{\rightpointsmargin}{1in}
   \bracketedpoints
   \marksnotpoints
-  \totalformat{\fbox{Total for Question \thequestion: \totalpoints}}
+  \totalformat{\fbox{Question \thequestion: \totalpoints}}
 
-  \begin{NMQ}{0in}
-  What if there were no air?
+  \begin{QUESTION}{1}
+  What is this?
 
-  \end{NMQ}
+  \end{QUESTION}
+
+  \begin{SOLUTION}{2.5cm}
+  This is that.
+
+  \end{SOLUTION}
+
+  \begin{QUESTION}{}
+  What if there was no air?
+
+  \end{QUESTION}
 
   \begin{PARTS}
 
-  \begin{PART}{5}{1in}
+  \begin{PART}{5}
   Describe the effect on the balloon industry.
 
   \end{PART}
 
-  \begin{PART}{4}{1in}
+  \begin{SOLUTION}{ \stretch{1} }
+  Balloons need air. People also need air. Without air and people, there
+  will be no balloon industry.
+
+  \end{SOLUTION}
+
+  \begin{PART}{4}
   Describe the effect on the aircraft industry.
 
   \end{PART}
+
+  \begin{SOLUTION}{ \stretch{1} }
+  Aircraft need air. People also need air. Without air and people, there
+  will be no aircraft industry.
+
+  \end{SOLUTION}
+
+  \droptotalpoints
+  \newpage
 
   \end{PARTS}
 
-  \begin{NMQ}{0in}
-  What if there were no air?
+  \begin{QUESTION}{}
+  What if there was no air?
 
-  \end{NMQ}
+  \end{QUESTION}
 
   \begin{PARTS}
 
-  \begin{PART}{5}{\stretch{1}}
+  \begin{PART}{5}
   Describe the effect on the balloon industry.
 
   \end{PART}
 
-  \begin{PART}{4}{\stretch{1}}
+  \begin{SOLUTION}{ \stretch{1} }
+  Balloons need air. People also need air. Without air and people, there
+  will be no balloon industry.
+
+  \end{SOLUTION}
+
+  \begin{PART}{4}
   Describe the effect on the aircraft industry.
 
   \end{PART}
+
+  \begin{SOLUTION}{ \stretch{1} }
+  Aircraft need air. People also need air. Without air and people, there
+  will be no aircraft industry.
+
+  \end{SOLUTION}
+
+  \droptotalpoints
+  \newpage
 
   \end{PARTS}
 

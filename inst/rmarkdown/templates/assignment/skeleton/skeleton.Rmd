@@ -1,9 +1,10 @@
 ---
-module: "STAX XXX"
-title: "Assignment X"
+module: "STAT 321"
+title: "Assignment 1"
 author: "Your Name"
-date: "`r format(Sys.Date(), '%d %B %Y')`"
-answers: true
+due: "`r format(Sys.Date(), '%d %B %Y')`"
+solutions: false
+gradetable: false
 fontsize: 12pt
 output: AssignmentsRMD::assignments
 ---
@@ -12,46 +13,90 @@ output: AssignmentsRMD::assignments
 knitr::opts_chunk$set(echo = TRUE)
 ```
 
-::: {.NMQ data-latex="{0in}"}
+::: {.QUESTION data-latex="{1}"}
+What is this?
+:::
 
-What if there were no air?
+::: {.SOLUTION data-latex="{2.5cm}"}
+
+This is that.
+
+:::
+
+::: {.QUESTION data-latex="{}"}
+
+What if there was no air?
 
 :::
 
 :::: {.PARTS data-latex=""}
 
-::: {.PART data-latex="{5}{1in}"}
+::: {.PART data-latex="{5}"}
 
 Describe the effect on the balloon industry.
 
 :::
 
-::: {.PART data-latex="{4}{1in}"}
+::: {.SOLUTION data-latex="{ \stretch{1} }"}
+
+Balloons need air. People also need air. Without air and people, there will be no balloon industry.
+
+:::
+
+::: {.PART data-latex="{4}"}
 
 Describe the effect on the aircraft industry.
 
 :::
+
+::: {.SOLUTION data-latex="{ \stretch{1} }"}
+
+Aircraft need air. People also need air. Without air and people, there will be no aircraft industry.
+
+:::
+
+```{=latex}
+\droptotalpoints
+\newpage
+```
 
 ::::
 
-::: {.NMQ data-latex="{0in}"}
+::: {.QUESTION data-latex="{}"}
 
-What if there were no air?
+What if there was no air?
 
 :::
 
 :::: {.PARTS data-latex=""}
 
-::: {.PART data-latex="{5}{\stretch{1}}"}
+::: {.PART data-latex="{5}"}
 
 Describe the effect on the balloon industry.
 
 :::
 
-::: {.PART data-latex="{4}{\stretch{1}}"}
+::: {.SOLUTION data-latex="{ \stretch{1} }"}
+
+Balloons need air. People also need air. Without air and people, there will be no balloon industry.
+
+:::
+
+::: {.PART data-latex="{4}"}
 
 Describe the effect on the aircraft industry.
 
 :::
+
+::: {.SOLUTION data-latex="{ \stretch{1} }"}
+
+Aircraft need air. People also need air. Without air and people, there will be no aircraft industry.
+
+:::
+
+```{=latex}
+\droptotalpoints
+\newpage
+```
 
 ::::

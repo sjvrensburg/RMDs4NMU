@@ -1,25 +1,26 @@
-$if(answers)$
+$if(solutions)$
 \documentclass[answers, addpoints, $if(fontsize)$$fontsize$$else$12pt$endif$]{exam}
 $else$
 \documentclass[addpoints, $if(fontsize)$$fontsize$$else$12pt$endif$]{exam}
 $endif$
 
+\usepackage{xifthen} % provides \isempty test
 \usepackage{graphicx}
 
+\usepackage{setspace}
+\onehalfspacing
+
 % We need simple wrappers around part, question and solution
-\newenvironment{NMQ}[1]{
-  \def\tempSize{#1}
+\newenvironment{QUESTION}[1]{ % Argument is the number of marks
+  \ifthenelse{\isempty{#1}} {
+  % if #1 is empty
   \question
-}{
-  \vspace{\tempSize}
-}
-\newenvironment{QUESTION}[2]{
-  \def\tempSize{#2}
+  } {
   \question[#1]
+  }% if #1 is not empty
 }{
-  \vspace{\tempSize}
 }
-\newenvironment{SOLUTION}[1]{
+\newenvironment{SOLUTION}[1]{ % Argument is the amount of blank space
   \begin{solution}[#1]
 }{
   \end{solution}
@@ -28,23 +29,38 @@ $endif$
   \begin{parts}
 }{
   \end{parts}
-  \droptotalpoints
-  \newpage
 }
-\newenvironment{PART}[2]{
-  \def\tempSize{#2}
+\newenvironment{PART}[1]{ % Argument is the number of marks
   \part[#1]
 }{
-  \vspace{\tempSize}
 }
 
+$if(solutions)$
+% We don't want the due date, instructions, student name, etc.
 \pagestyle{headandfoot}
 \runningheadrule
-\firstpageheader{$module$}{$title$}{$date$}
+\firstpageheader{\large \textbf{$module$}}
+{\large \textbf{$title$ Model Answers}}
+{\large \textbf{Total: \numpoints\ }}
 
-\runningheader{$module$}
-{$title$, Page \thepage\ of \numpages}
-{$date$}
+\runningheader{\textbf{$module$}}
+{\textbf{$title$ Model Answers}}
+{\textbf{Page \thepage\ of \numpages\ }}
+\firstpagefooter{}{}{}
+\runningfooter{}{}{}
+
+\begin{document}
+$else$
+% We require the due date, instructions, student name, etc.
+\pagestyle{headandfoot}
+\runningheadrule
+\firstpageheader{\large \textbf{$module$}}
+{\large \textbf{$title$ Due \underline{$due$}}}
+{\large \textbf{Total: \numpoints\ }}
+
+\runningheader{\textbf{$module$}}
+{\textbf{$title$}}
+{\textbf{Page \thepage\ of \numpages\ }}
 \firstpagefooter{}{}{}
 \runningfooter{}{}{}
 
@@ -60,21 +76,28 @@ $endif$
     }
   }
 \end{center}
-\vspace{0.1in}
-\makebox[\textwidth]{Student No.:\enspace\hrulefill}
-\vspace{0.1in}
+\vspace{0.5cm}
+\makebox[\textwidth]{Student Number:\enspace\hrulefill}
+\vspace{0.5cm}
 \makebox[\textwidth]{Surname, Name (Optional):\enspace\hrulefill}
 
-\begin{center}
-\gradetable[h][questions]
-\end{center}
+$if(gradetable)$
+  \vspace{\stretch{1}}
+  \begin{center}
+    \gradetable[v][questions]
+  \end{center}
+  \vspace{\stretch{2}}
+  \newpage
+$endif$
+
+$endif$
 
 \begin{questions}
   \pointsinrightmargin
   \setlength{\rightpointsmargin}{1in}
   \bracketedpoints
   \marksnotpoints
-  \totalformat{\fbox{Total for Question \thequestion: \totalpoints}}
+  \totalformat{\fbox{Question \thequestion: \totalpoints}}
 
   $body$
 
