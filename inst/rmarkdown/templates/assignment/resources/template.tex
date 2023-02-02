@@ -1,4 +1,4 @@
-$if(solutions)$
+$if(params.solutions)$
 \documentclass[answers, addpoints, $if(fontsize)$$fontsize$$else$12pt$endif$]{exam}
 $else$
 \documentclass[addpoints, $if(fontsize)$$fontsize$$else$12pt$endif$]{exam}
@@ -6,80 +6,91 @@ $endif$
 
 \usepackage{xifthen} % provides \isempty test
 \usepackage{graphicx}
+\usepackage[hidelinks]{hyperref}
+
+% Highlighting code chuncks
+$if(highlighting-macros)$
+$highlighting-macros$
+$endif$
 
 \usepackage{setspace}
 \onehalfspacing
 
-% We need simple wrappers around part, question and solution
-\newenvironment{QUESTION}[1]{ % Argument is the number of marks
-  \ifthenelse{\isempty{#1}} {
-  % if #1 is empty
-  \question
-  } {
-  \question[#1]
-  }% if #1 is not empty
-}{
-}
-\newenvironment{SOLUTION}[1]{ % Argument is the amount of blank space
-  \begin{solution}[#1]
-}{
-  \end{solution}
-}
-\newenvironment{PARTS}{
-  \begin{parts}
-}{
-  \end{parts}
-}
-\newenvironment{PART}[1]{ % Argument is the number of marks
-  \part[#1]
-}{
-}
+% CSL referencing
+$if(csl-refs)$
+\newlength{\cslhangindent}
+\setlength{\cslhangindent}{1.5em}
+\newlength{\csllabelwidth}
+\setlength{\csllabelwidth}{3em}
+\newlength{\cslentryspacingunit} % times entry-spacing
+\setlength{\cslentryspacingunit}{\parskip}
+\newenvironment{CSLReferences}[2] % #1 hanging-ident, #2 entry spacing
+ {% don't indent paragraphs
+  \setlength{\parindent}{0pt}
+  % turn on hanging indent if param 1 is 1
+  \ifodd #1
+  \let\oldpar\par
+  \def\par{\hangindent=\cslhangindent\oldpar}
+  \fi
+  % set entry spacing
+  \setlength{\parskip}{#2\cslentryspacingunit}
+ }%
+ {}
+\usepackage{calc}
+\newcommand{\CSLBlock}[1]{#1\hfill\break}
+\newcommand{\CSLLeftMargin}[1]{\parbox[t]{\csllabelwidth}{#1}}
+\newcommand{\CSLRightInline}[1]{\parbox[t]{\linewidth - \csllabelwidth}{#1}\break}
+\newcommand{\CSLIndent}[1]{\hspace{\cslhangindent}#1}
+$endif$
 
-$if(solutions)$
-% We don't want the due date, instructions, student name, etc.
 \pagestyle{headandfoot}
 \runningheadrule
-\firstpageheader{\large \textbf{$module$}}
-{\large \textbf{$title$ Model Answers}}
-{\large \textbf{Total: \numpoints\ }}
+\firstpageheader{\large \textbf{$header.front.left$}}
+{\large \textbf{$header.front.center$}}
+{\large \textbf{$header.front.right$}}
+%% Other pages
+\runningheader{\textbf{$header.running.left$}}
+{\textbf{$header.running.center$}}
+{\textbf{$header.running.right$}}
 
-\runningheader{\textbf{$module$}}
-{\textbf{$title$ Model Answers}}
-{\textbf{Page \thepage\ of \numpages\ }}
-\firstpagefooter{}{}{}
-\runningfooter{}{}{}
-
-\begin{document}
-$else$
-% We require the due date, instructions, student name, etc.
-\pagestyle{headandfoot}
-\runningheadrule
-\firstpageheader{\large \textbf{$module$}}
-{\large \textbf{$title$ Due \underline{$due$}}}
-{\large \textbf{Total: \numpoints\ }}
-
-\runningheader{\textbf{$module$}}
-{\textbf{$title$}}
-{\textbf{Page \thepage\ of \numpages\ }}
-\firstpagefooter{}{}{}
-\runningfooter{}{}{}
+\firstpagefooter{\large \textbf{$footer.front.left$}}
+{\large \textbf{$footer.front.center$}}
+{\large \textbf{$footer.front.right$}}
+%% Other pages
+\runningfooter{\textbf{$footer.running.left$}}
+{\textbf{$footer.running.center$}}
+{\textbf{$footer.running.right$}}
 
 \begin{document}
 
-\begin{center}
-\fbox{
-  \fbox{
-    \parbox{5.5in}{
-      \centering
-      Answer the questions in the spaces provided on the question sheets. If you run out of room for an answer, continue on the back of the page.
-      }
-    }
-  }
-\end{center}
+$if(instructions)$
+\makebox[\textwidth]{Due Date:\enspace\hfill $params.due$ }
+
+  \vspace{0.5cm}
+  %
+  \makebox[\textwidth]{Student Number:\enspace\hrulefill}
+
+  \vspace{0.5cm}
+  %
+  \makebox[\textwidth]{Surname, Name:\enspace\hrulefill}
+
+  \vspace{0.75cm}
+
+  \noindent\fbox{
+    \begin{minipage}[t]{1\columnwidth - 2\fboxsep - 2\fboxrule}
+      \textbf{Instructions:}
+      \begin{itemize}
+        \item Answer all questions in the space provided.
+        \item Show your workings.
+        \item Round off final answers to four decimal places.
+        \item Work independently.
+        \item Submit your assignment by noon on the due date, i.e., 12:00 PM on $params.due$.
+      \end{itemize}
+      If you require assistance, please contact $params.instructor$ at \mbox{$params.email$}.
+    \end{minipage}}
+
 \vspace{0.5cm}
-\makebox[\textwidth]{Student Number:\enspace\hrulefill}
-\vspace{0.5cm}
-\makebox[\textwidth]{Surname, Name (Optional):\enspace\hrulefill}
+$endif$
 
 $if(gradetable)$
   \vspace{\stretch{1}}
@@ -88,8 +99,6 @@ $if(gradetable)$
   \end{center}
   \vspace{\stretch{2}}
   \newpage
-$endif$
-
 $endif$
 
 \begin{questions}

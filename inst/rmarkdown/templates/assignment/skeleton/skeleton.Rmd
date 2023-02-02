@@ -1,102 +1,61 @@
 ---
-module: "STAT 321"
-title: "Assignment 1"
-author: "Your Name"
-due: "`r format(Sys.Date(), '%d %B %Y')`"
-solutions: false
-gradetable: false
+params:
+  # ALWAYS USE DOUBLE QUOTES FOR YAML PARAMETERS.
+  module: "MODULE XXX"
+  instructor: "Dr Someone"
+  email: "me@work.com"
+  due: "`r format(Sys.Date(), '%d %B %Y')`"
+  solutions: true  # Is this the memo?
+# HEADERS AND FOOTERS
+header:
+  front:
+    left:   "`r params$module`"       # YOU CAN REFERENCE params
+    center: "Assignment X"
+    right:  "Total: \\numpoints\ "    # YOU CAN INCLUDE LATEX
+  running:
+    left:   "`r params$module`"
+    center: ""
+    right:  "Page \\thepage\\ of \\numpages\\ " # NB: SPACE AT THE
+footer:
+  front:
+    left:   ""
+    center: ""
+    right:  ""
+  running:
+    left:   ""
+    center: ""
+    right:  ""
+instructions: true   # Edit instructions.tex to customise
+gradetable: false    # Code for gradetable in instructions.tex
 fontsize: 12pt
 output: AssignmentsRMD::assignments
+standalone: true
 ---
 
 ```{r setup, include=FALSE}
 knitr::opts_chunk$set(echo = TRUE)
 ```
 
-::: {.QUESTION data-latex="{1}"}
+\question[1]
 What is this?
-:::
+\begin{solution}[2.2cm]
+That is a question and this is the solution.
+\end{solution}
 
-::: {.SOLUTION data-latex="{2.5cm}"}
+\question
+Suppose that we want to split a question into multiple parts.
 
-This is that.
+\begin{parts}
+\part[1]
+Is this possible?
+\begin{solution}[1cm]
+Yes!
+\end{solution}
 
-:::
+\part[1]
+Where do the solutions go?
+\begin{solution}[1cm]
+You just place the solution environment below the part.
+\end{solution}
 
-::: {.QUESTION data-latex="{}"}
-
-What if there was no air?
-
-:::
-
-:::: {.PARTS data-latex=""}
-
-::: {.PART data-latex="{5}"}
-
-Describe the effect on the balloon industry.
-
-:::
-
-::: {.SOLUTION data-latex="{ \stretch{1} }"}
-
-Balloons need air. People also need air. Without air and people, there will be no balloon industry.
-
-:::
-
-::: {.PART data-latex="{4}"}
-
-Describe the effect on the aircraft industry.
-
-:::
-
-::: {.SOLUTION data-latex="{ \stretch{1} }"}
-
-Aircraft need air. People also need air. Without air and people, there will be no aircraft industry.
-
-:::
-
-```{=latex}
-\droptotalpoints
-\newpage
-```
-
-::::
-
-::: {.QUESTION data-latex="{}"}
-
-What if there was no air?
-
-:::
-
-:::: {.PARTS data-latex=""}
-
-::: {.PART data-latex="{5}"}
-
-Describe the effect on the balloon industry.
-
-:::
-
-::: {.SOLUTION data-latex="{ \stretch{1} }"}
-
-Balloons need air. People also need air. Without air and people, there will be no balloon industry.
-
-:::
-
-::: {.PART data-latex="{4}"}
-
-Describe the effect on the aircraft industry.
-
-:::
-
-::: {.SOLUTION data-latex="{ \stretch{1} }"}
-
-Aircraft need air. People also need air. Without air and people, there will be no aircraft industry.
-
-:::
-
-```{=latex}
-\droptotalpoints
-\newpage
-```
-
-::::
+\end{parts}
