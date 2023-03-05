@@ -96,6 +96,7 @@ $if(params.instructions)$
   \noindent\fbox{
     \begin{minipage}[t]{1\columnwidth - 2\fboxsep - 2\fboxrule}
       \textbf{Instructions:}
+      $if(params.spaceprovided)$
       \begin{itemize}
         \item Answer all questions in the space provided.
         \item Show your workings.
@@ -103,6 +104,14 @@ $if(params.instructions)$
         \item Work independently.
         \item Submit your assignment by noon on the due date, i.e., 12:00 PM on $params.due$.
       \end{itemize}
+      $else$
+      \begin{itemize}
+        \item Show your workings.
+        \item Round off final answers to four decimal places.
+        \item Work independently.
+        \item Submit your assignment by noon on the due date, i.e., 12:00 PM on $params.due$.
+      \end{itemize}
+      $endif$
       If you require assistance, please contact $params.instructor$ at \mbox{$params.email$}.
     \end{minipage}}
 
