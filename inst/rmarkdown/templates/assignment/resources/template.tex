@@ -4,9 +4,17 @@ $else$
 \documentclass[addpoints, $if(fontsize)$$fontsize$$else$12pt$endif$]{exam}
 $endif$
 
+\usepackage{amsmath}
+\usepackage{amssymb}
 \usepackage{xifthen} % provides \isempty test
 \usepackage{graphicx}
 \usepackage[hidelinks]{hyperref}
+\usepackage{censor}
+
+% Tightlist environment when using "-" for bullet points.
+\setlength{\emergencystretch}{3em} % prevent overfull lines
+\providecommand{\tightlist}{%
+  \setlength{\itemsep}{0pt}\setlength{\parskip}{0pt}}
 
 % Highlighting code chuncks
 $if(highlighting-macros)$
@@ -63,11 +71,17 @@ $endif$
 
 \begin{document}
 
-$if(instructions)$
+$if(params.instructions)$
 \makebox[\textwidth]{Due Date:\enspace\hfill $params.due$ }
+$endif$
+%
+$if(params.spaceprovided)$
+  $if(params.instructions)$
+    \vspace{0cm}
+  $else$
+    \vspace{0.5cm}
+  $endif$
 
-  \vspace{0.5cm}
-  %
   \makebox[\textwidth]{Student Number:\enspace\hrulefill}
 
   \vspace{0.5cm}
@@ -75,7 +89,10 @@ $if(instructions)$
   \makebox[\textwidth]{Surname, Name:\enspace\hrulefill}
 
   \vspace{0.75cm}
+$endif$
 
+$if(params.instructions)$
+  \vfill
   \noindent\fbox{
     \begin{minipage}[t]{1\columnwidth - 2\fboxsep - 2\fboxrule}
       \textbf{Instructions:}
@@ -89,10 +106,11 @@ $if(instructions)$
       If you require assistance, please contact $params.instructor$ at \mbox{$params.email$}.
     \end{minipage}}
 
-\vspace{0.5cm}
+  %\vspace{0.5cm}
+  \vfill
 $endif$
 
-$if(gradetable)$
+$if(params.gradetable)$
   \vspace{\stretch{1}}
   \begin{center}
     \gradetable[v][questions]
@@ -102,7 +120,7 @@ $if(gradetable)$
 $endif$
 
 \begin{questions}
-  \pointsinrightmargin
+  %\pointsinrightmargin
   \setlength{\rightpointsmargin}{1in}
   \bracketedpoints
   \marksnotpoints

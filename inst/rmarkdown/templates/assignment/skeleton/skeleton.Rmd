@@ -5,7 +5,10 @@ params:
   instructor: "Dr Someone"
   email: "me@work.com"
   due: "`r format(Sys.Date(), '%d %B %Y')`"
-  solutions: true  # Is this the memo?
+  spaceprovided: true # Should students write on the space provides?
+  solutions: false     # Is this the memo?
+  instructions: true  # Edit instructions.tex to customise
+  gradetable: false   # Code for gradetable in instructions.tex
 # HEADERS AND FOOTERS
 header:
   front:
@@ -25,8 +28,6 @@ footer:
     left:   ""
     center: ""
     right:  ""
-instructions: true   # Edit instructions.tex to customise
-gradetable: false    # Code for gradetable in instructions.tex
 fontsize: 12pt
 output: AssignmentsRMD::assignments
 standalone: true
