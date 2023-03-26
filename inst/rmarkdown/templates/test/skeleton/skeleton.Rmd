@@ -1,22 +1,23 @@
 ---
 params:
   # ALWAYS USE DOUBLE QUOTES FOR YAML PARAMETERS.
-  module: "MODULE XXX"
-  instructor: "Dr Someone"
-  email: "me@work.com"
-  due: "`r format(Sys.Date(), '%d %B %Y')`"
-  spaceprovided: true # Should students write on the space provides?
+  subject: "MODULE NAME"
+  code: "MODULE CODE"
+  test: "TEST X"
+  examiner: "Dr SOMEONE"
+  timelimit: "1 Hour"
+  date: "`r format(Sys.Date(), '%d %B %Y')`"
   solutions: false     # Is this the memo?
   instructions: true  # Edit instructions.tex to customise
-  gradetable: false   # Code for gradetable in instructions.tex
+  pointtable: true   # Code for point table in instructions.tex
 # HEADERS AND FOOTERS
 header:
   front:
-    left:   "`r params$module`"       # YOU CAN REFERENCE params
-    center: "Assignment X"
-    right:  "Total: \\numpoints\ "    # YOU CAN INCLUDE LATEX
+    left:   ""
+    center: "\\Large `r params$test` -- `r params$code`"
+    right:  ""
   running:
-    left:   "`r params$module`"
+    left:   "`r params$code`"
     center: ""
     right:  "Page \\thepage\\ of \\numpages\\ " # NB: SPACE AT THE
 footer:
@@ -29,7 +30,7 @@ footer:
     center: ""
     right:  ""
 fontsize: 12pt
-output: RMDs4NMU::assignments
+output: RMDs4NMU::tests
 standalone: true
 ---
 

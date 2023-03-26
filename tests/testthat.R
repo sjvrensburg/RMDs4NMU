@@ -7,6 +7,6 @@
 # * https://testthat.r-lib.org/reference/test_package.html#special-files
 
 library(testthat)
-library(AssignmentsRMD)
+library(RMDs4NMU)
 
-test_check("AssignmentsRMD")
+test_check("RMDs4NMU")

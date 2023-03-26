@@ -1,28 +1,28 @@
 
 <!-- README.md is generated from README.Rmd. Please edit that file -->
 
-# AssignmentsRMD
+# RMDs4NMU
 
 <!-- badges: start -->
 
 [![Lifecycle:
 experimental](https://img.shields.io/badge/lifecycle-experimental-orange.svg)](https://lifecycle.r-lib.org/articles/stages.html#experimental)
 [![CRAN
-status](https://www.r-pkg.org/badges/version/AssignmentsRMD)](https://CRAN.R-project.org/package=AssignmentsRMD)
+status](https://www.r-pkg.org/badges/version/RMDs4NMU)](https://CRAN.R-project.org/package=RMDs4NMU)
 <!-- badges: end -->
 
-AssignmentsRMD provides an R Markdown template for creating written
+RMDs4NMU provides an R Markdown template for creating written
 student assignments. I uses the excellent [LaTeX exam
 package](https://ctan.org/pkg/exam).
 
 ## Installation
 
-You can install the development version of AssignmentsRMD from
+You can install the development version of RMDs4NMU from
 [GitHub](https://github.com/) with:
 
 ``` r
 # install.packages("devtools")
-devtools::install_github("sjvrensburg/AssignmentsRMD")
+devtools::install_github("sjvrensburg/RMDs4NMU")
 ```
 
 In RStudio, after installation, you can create an assignment by
