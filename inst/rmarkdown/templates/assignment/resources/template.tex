@@ -12,6 +12,13 @@ $endif$
 \usepackage{censor}
 \usepackage{tabularx}
 \usepackage{booktabs}
+\usepackage{tikz}
+\usepackage{siunitx}
+
+\sisetup{
+  group-separator = {\ },
+  group-minimum-digits = 4
+}
 
 % Tightlist environment when using "-" for bullet points.
 \setlength{\emergencystretch}{3em} % prevent overfull lines
@@ -70,6 +77,31 @@ $endif$
 \runningfooter{\textbf{$footer.running.left$}}
 {\textbf{$footer.running.center$}}
 {\textbf{$footer.running.right$}}
+
+\def\tick{
+  \begin{tikzpicture}[scale=0.3]
+    \draw[fill=black] (0,.35) -- (.25,0) -- (1,.7) -- (.25, .175) -- cycle;
+    \node[above, white] at (0.35, 0.1) {\tiny 1};
+    \node[below, white] at (0.7, 0.5) {\tiny 2};
+  \end{tikzpicture}
+}
+
+\def\doubletick{
+    \begin{tikzpicture}[scale=0.3]
+        \draw[fill=black] (0,.35) -- (.25,0) -- (1,.7) -- (.25, .175) -- cycle;
+        \draw[fill=black] (0.5,.35) -- (.75,0) -- (1.5,.7) -- (.75, .175) -- cycle;
+        \node[above, white] at (0.35, 0.1) {\tiny 1};
+        \node[below, white] at (1.2, 0.5) {\tiny 2};
+    \end{tikzpicture}
+}
+
+\def\halftick{
+    \begin{tikzpicture}[scale=0.3]
+        \draw[fill=black] (0,.35) -- (.25,0) -- (1,.7) -- (.25,.15) -- cycle (0.75,0.2) -- (0.77,0.2)  -- (0.6,0.7) -- cycle;
+        \node[above] at (0.35, 0.1) {\tiny 1};
+        \node[below] at (0.7, 0.5) {\tiny 2};
+    \end{tikzpicture}
+}
 
 \begin{document}
 
