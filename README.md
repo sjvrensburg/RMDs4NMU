@@ -3,6 +3,8 @@
 
 # RMDs4NMU
 
+**_PLEASE USE THE NEW [rmdNMU](https://github.com/sjvrensburg/rmdNMU) INSTEAD OF THIS PACKAGE_**
+
 <!-- badges: start -->
 
 [![Lifecycle:
